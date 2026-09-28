@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+
+    <link rel="stylesheet" href="/static/notes.css">
+</head>
+<body>
+
+    <h1>Notes</h1>
+
+    <p id="status"></p>
+<h2>Login</h2>
+
+<form id="login-form">
+    <input
+        type="email"
+        id="login-email"
+        placeholder="Email"
+        required
+    >
+
+    <input
+        type="password"
+        id="login-password"
+        placeholder="Password"
+        required
+    >
+
+    <button type="submit">Login</button>
+</form>
+
+<hr>
+    <form id="note-form">
+        <input
+            type="text"
+            id="name"
+            placeholder="Your name"
+            required
+        >
+
+        <textarea
+            id="message"
+            placeholder="Write a note"
+            required
+        ></textarea>
+
+        <select id="category">
+            <option value="1">Work</option>
+            <option value="2">Personal</option>
+        </select>
+
+        <button type="submit">Add Note</button>
+    </form>
+
+    <hr>
+
+    <div id="notes-list"></div>
+
+    <script src="/static/notes.js"></script>
+
+</body>
+</html>

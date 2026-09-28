@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Guest Book
+{% endblock %}
+
+{% block content %}
+
+<h2>My Guest Book</h2>
+
+<h3>Leave a message</h3>
+
+<form method="POST" action="{{ url_for('add_entry') }}">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <br><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <br><br>
+
+    <button type="submit">Add Entry</button>
+
+</form>
+
+
+<hr>
+
+
+<h3>Messages</h3>
+
+{% for entry in entries %}
+
+    <article>
+
+        <h4>{{ entry["name"] }}</h4>
+
+        <p>{{ entry["message"] }}</p>
+
+        <small>{{ entry["created_at"] }}</small>
+
+        <form method="POST" action="{{ url_for('delete_entry', id=entry['id']) }}">
+            <button type="submit">Delete</button>
+        </form>
+
+    </article>
+
+{% else %}
+
+    <p>No entries yet. Be the first to leave a message!</p>
+
+{% endfor %}
+
+{% endblock %}
