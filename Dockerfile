@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-10000} 'app:create_app()'"]
+CMD ["sh", "-c", "flask --app 'app:create_app()' db upgrade && gunicorn --bind 0.0.0.0:${PORT:-10000} 'app:create_app()'"]
